@@ -1,0 +1,442 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>HexGameBoard</name>
+    </assembly>
+    <members>
+        <member name="T:HexGameBoard.HexHelper">
+            <summary>
+                Zawiera funkcje pomocnicze dla planszy w układzie hexagonalnym
+            </summary>
+            <summary>
+                Zawiera funkcje pomocnicze dla planszy w układzie hexagonalnym
+            </summary>
+            <summary>
+                Zawiera funkcje pomocnicze dla planszy w układzie hexagonalnym
+            </summary>
+        </member>
+        <member name="M:HexGameBoard.HexHelper.PixelToHexIndex(UnityEngine.Vector2,System.Single)">
+            <summary>
+                Zwraca indeks pola, do którego należy podany punkt
+            </summary>
+            <param name="point"></param>
+            <param name="hexSize"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HexGameBoard.HexHelper.PixelToHexIndex(System.Single,System.Single,System.Single)">
+            <summary>
+                Zwraca indeks pola, do którego należy podany punkt
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+            <param name="hexSize"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HexGameBoard.HexHelper.DrawLine(UnityEngine.Vector2Int,UnityEngine.Vector2Int)">
+            <summary>
+            
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HexGameBoard.HexHelper.CanDrawLine(UnityEngine.Vector2Int,UnityEngine.Vector2Int,System.Boolean[][])">
+            <summary>
+            
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <param name="boardTemplate"></param>
+            <returns></returns>
+        </member>
+        <member name="T:HexGameBoard.HexHelper.Direction">
+            <summary>
+                Możliwe położenia sąsiada względem pola
+            </summary>
+        </member>
+        <member name="F:HexGameBoard.HexHelper.Direction.Up">
+            <summary>Powyżej</summary>
+        </member>
+        <member name="F:HexGameBoard.HexHelper.Direction.UpperRight">
+            <summary>W prawym górnym rogu</summary>
+        </member>
+        <member name="F:HexGameBoard.HexHelper.Direction.LowerRight">
+            <summary>W prawym dolnym rogu</summary>
+        </member>
+        <member name="F:HexGameBoard.HexHelper.Direction.Bottom">
+            <summary>Poniżej</summary>
+        </member>
+        <member name="F:HexGameBoard.HexHelper.Direction.LowerLeft">
+            <summary>W lewym dolnym rogu</summary>
+        </member>
+        <member name="F:HexGameBoard.HexHelper.Direction.UpperLeft">
+            <summary>W lewym górnym rogu</summary>
+        </member>
+        <member name="F:HexGameBoard.HexHelper.offsets">
+            <summary>
+                Offsety do obliczania indeksu pola sąsiada
+            </summary>
+        </member>
+        <member name="M:HexGameBoard.HexHelper.IndexOfNeighbor(UnityEngine.Vector2Int,HexGameBoard.HexHelper.Direction)">
+            <summary>
+                Podaje koordynaty wybranego, sąsiedniego hexa
+            </summary>
+            <param name="position">Pozycja bazowego hexa</param>
+            <param name="direction">Kierunek sąsiedniego hexa względem bazowego</param>
+            <returns>Pozycja sąsiedniego hexa</returns>
+        </member>
+        <member name="M:HexGameBoard.HexHelper.IndexOfNeighbor(System.Int32,System.Int32,HexGameBoard.HexHelper.Direction)">
+            <summary>
+                Podaje koordynaty wybranego, sąsiedniego hexa
+            </summary>
+            <param name="parentX">Pozycja X bazowego hexa</param>
+            <param name="parentY">Pozycja Y bazowego hexa</param>
+            <param name="direction">Kierunek sąsiedniego hexa względem bazowego</param>
+            <returns></returns>
+        </member>
+        <member name="M:HexGameBoard.HexHelper.FieldsInRange(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+                Zwraca listę wszystkich hexów będacych w odległości nie większej niż zadany promień
+            </summary>
+            <param name="centerPositionX">Pozycja X bazowego hexa</param>
+            <param name="centerPositionY">Pozycja Y bazowego hexa</param>
+            <param name="outerRadius">Promień zewnętrzny</param>
+            <param name="innerRadius">Promień wewnętrzny</param>
+            <returns>Lista hexów w zasięgu</returns>
+        </member>
+        <member name="M:HexGameBoard.HexHelper.FieldsInRange(UnityEngine.Vector2Int,System.Int32,System.Int32)">
+            <summary>
+                Zwraca listę wszystkich hexów będacych w odległości nie większej niż zadany promień
+            </summary>
+            <param name="centerPosition">Pozycja bazowego hexa</param>
+            <param name="outerRadius">Promień zewnętrzny</param>
+            <param name="innerRadius">Promień wewnętrzny</param>
+            <returns>Lista hexów w zasięgu</returns>
+        </member>
+        <member name="M:HexGameBoard.HexHelper.GetDistance(UnityEngine.Vector2Int,UnityEngine.Vector2Int)">
+            <summary>
+                Określa dystans pomiędzy dwoma polami (zdefiniowanymi we współrzędnych kartezjańskich 2D). Ignoruje przeszkody.
+            </summary>
+            <param name="a">Pierwsze pole (współrzędne kartezjańskie 2D)</param>
+            <param name="b">Drugie pole (współrzędne kartezjańskie 2D)</param>
+            <returns></returns>
+        </member>
+        <member name="M:HexGameBoard.HexHelper.GetDistance(UnityEngine.Vector3Int,UnityEngine.Vector3Int)">
+            <summary>
+                Określa dystans pomiędzy dwoma polami (zdefiniowanymi we współrzędnych mapowania sześniennego). Ignoruje przeszkody.
+            </summary>
+            <param name="a">Pierwsze pole (współrzędne mapowania sześciennego)</param>
+            <param name="b">Drugie pole (współrzędne mapowania sześciennego)</param>
+            <returns></returns>
+        </member>
+        <member name="M:HexGameBoard.HexHelper.AxialToCubeCoordinates(UnityEngine.Vector2Int)">
+            <summary>
+                Konwertuje współrzędne kartezjańskie 2D na współrzędne mapowania sześciennego.
+            </summary>
+            <param name="axialCoordinates">Współrzędne kartezjańskie 2D</param>
+            <returns>Współrzędne mapowania sześciennego</returns>
+        </member>
+        <member name="M:HexGameBoard.HexHelper.CubeToAxialCoordinates(UnityEngine.Vector3Int)">
+            <summary>
+                Konwertuje współrzędne mapowania sześciennego na współrzędne kartezjańskie 2D.
+            </summary>
+            <param name="cubeCoordinates">Współrzędne mapowania sześciennego</param>
+            <returns>Współrzędne kartezjańskie 2D</returns>
+        </member>
+        <member name="M:HexGameBoard.HexHelper.GetHexRing(UnityEngine.Vector2Int,System.Int32)">
+            <summary>
+                Zwraca listę wszystkich hexów będacych na określonej warstwie. Funkcja pomonicza dla FieldsInRange().
+            </summary>
+            <param name="field">Pole leżace w lewym dolnym rogu okręgu</param>
+            <param name="layer">Numer warstwy</param>
+            <returns>Lista pól</returns>
+        </member>
+        <member name="M:HexGameBoard.HexHelper.FindPath(System.Boolean[][],UnityEngine.Vector2Int,UnityEngine.Vector2Int)">
+            <summary>
+                Wyszukuje najkrótszą ścieżkę pomiędzy dwoma polami.  
+                Implementacja algorytmu A*.
+            </summary>
+            <param name="fields">Tablica pól z zadeklarowną dostępnością. Muszą dziedziczyć po klasie PathFindableField</param>
+            <param name="start">Pole startowe</param>
+            <param name="destination">Pole końcowe</param>
+            <seealso cref="T:HexGameBoard.PathFindableField"/>
+            <exception cref="T:System.ArgumentNullException" />
+            <returns>Najkrótsza ścieżka (stos)</returns>
+        </member>
+        <member name="M:HexGameBoard.HexHelper.FindPath(System.Boolean[][],UnityEngine.Vector2Int,UnityEngine.Vector2Int,UnityEngine.Vector2Int,UnityEngine.Vector2Int)">
+            <summary>
+                Wyszukuje najkrótszą ścieżkę pomiędzy dwoma polami.  
+                Implementacja algorytmu A*.
+            </summary>
+            <param name="fields">Tablica pól z zadeklarowną dostępnością. Muszą dziedziczyć po klasie PathFindableField</param>
+            <param name="start">Pole startowe</param>
+            <param name="destination">Pole końcowe</param>
+            <param name="minIndexes">Minimalne indeksy pól branych pod uwagę przy wyznaczaniu ścieżki</param>
+            <param name="maxIndexes">Maksymalne indeksy pól branych pod uwagę przy wyznaczaniu ścieżki</param>
+            <seealso cref="T:HexGameBoard.PathFindableField"/>
+            <exception cref="T:System.ArgumentNullException" />
+            <exception cref="T:System.ArgumentOutOfRangeException" />
+            <returns>Najkrótsza ścieżka (stos)</returns>
+        </member>
+        <member name="M:HexGameBoard.HexHelper.CheckArguments(System.Boolean[][],UnityEngine.Vector2Int,UnityEngine.Vector2Int,UnityEngine.Vector2Int,UnityEngine.Vector2Int)">
+            <summary>
+                Wyrzuca ewentulne wyjątki związany z niepoprawnymi argumentami funkcji FindPath
+            </summary>
+            <param name="fields">Tablica pól z zadeklarowną dostępnością. Muszą dziedziczyć po klasie PathFindableField</param>
+            <param name="start">Pole startowe</param>
+            <param name="destination">Pole końcowe</param>
+            <param name="minIndexes">Minimalne indeksy pól branych pod uwagę przy wyznaczaniu ścieżki</param>
+            <param name="maxIndexes">Maksymalne indeksy pól branych pod uwagę przy wyznaczaniu ścieżki</param>
+            <exception cref="T:System.ArgumentNullException" />
+            <exception cref="T:System.ArgumentOutOfRangeException" />
+        </member>
+        <member name="M:HexGameBoard.HexHelper.InitializeNodes(System.Boolean[][])">
+            <summary>
+                Inicjalizuje tablicę do przechowywania węzłów
+            </summary>
+            <param name="fields">Tablica pól z zadeklarowną dostępnością</param>
+            <returns>Pomocnicza tablica</returns>
+        </member>
+        <member name="M:HexGameBoard.HexHelper.IsInOpenSet(UnityEngine.Vector2Int,HexGameBoard.Nodes.Node[][])">
+            <summary>
+                Określa, czy wybrany węzeł znajduje się na liście otwartej
+            </summary>
+            <param name="nodePosition">Pozycja wybranego węzła</param>
+            <param name="nodes">Tablica węzłów</param>
+            <returns></returns>
+        </member>
+        <member name="M:HexGameBoard.HexHelper.IsInClosedSet(UnityEngine.Vector2Int,HexGameBoard.Nodes.Node[][])">
+            <summary>
+                Określa, czy wybrany węzeł znajduje się na liście zamkniętej
+            </summary>
+            <param name="nodePosition">Pozycja wybranego węzła</param>
+            <param name="nodes">Tablica węzłów</param>
+            <returns></returns>
+        </member>
+        <member name="M:HexGameBoard.HexHelper.GetNeighbors(System.Boolean[][],HexGameBoard.Nodes.Node[][],UnityEngine.Vector2Int,UnityEngine.Vector2Int,UnityEngine.Vector2Int)">
+            <summary>
+                Zwraca listę sąsiednich węzłów.
+                Jeśli nie ma jej w tablicy węzłów - znajduje sąsiadów i dodaje listę do tablicy.
+            </summary>
+            <param name="fields">Tablica pól z zadeklarowną dostępnością</param>
+            <param name="nodes">Tablica węzłów</param>
+            <param name="nodePosition">Pozycja wybranego węzła</param>
+            <param name="minIndexes">Minimalne indeksy pól branych pod uwagę przy wyznaczaniu ścieżki</param>
+            <param name="maxIndexes">Maksymalne indeksy pól branych pod uwagę przy wyznaczaniu ścieżki</param>
+            <returns></returns>
+        </member>
+        <member name="M:HexGameBoard.HexHelper.AddToOpenSet(Priority_Queue.FastPriorityQueue{HexGameBoard.Nodes.Node},HexGameBoard.Nodes.Node[][],HexGameBoard.Nodes.Node)">
+            <summary>
+                Dodaje węzeł do listy otwartej.
+                Dodaje do tablicy węzłów.
+            </summary>
+            <param name="openSet">Lista otwarta</param>
+            <param name="nodes">Tablica węzłów</param>
+            <param name="node">Wybrany węzeł</param>
+        </member>
+        <member name="M:HexGameBoard.HexHelper.AddToClosedSet(HexGameBoard.Nodes.Node[][],HexGameBoard.Nodes.Node)">
+            <summary>
+                Dodaje węzeł do listy zamkniętej.
+                Dodaje do tablicy węzłów.
+            </summary>
+            <param name="nodes">Tablica węzłów</param>
+            <param name="node">Wybrany węzeł</param>
+        </member>
+        <member name="M:HexGameBoard.HexHelper.CombinePath(HexGameBoard.Nodes.Node)">
+            <summary>
+                Zwraca stos z najkrótszą ścieżką.
+            </summary>
+            <param name="destination">Węzeł startowy</param>
+            <returns>Stos</returns>
+        </member>
+        <member name="M:HexGameBoard.HexHelper.FindAvailableNeighbors(System.Boolean[][],System.Int32,System.Int32,UnityEngine.Vector2Int,UnityEngine.Vector2Int)">
+            <summary>
+                Wyszukuje dostępnych sąsiadów wybranego pola
+            </summary>
+            <param name="fields">Tablica pól z zadeklarowną dostępnością</param>
+            <param name="x">Pozycja X</param>
+            <param name="y">Pozycja Y</param>
+            <param name="minIndexes">Minimalne indeksy pól branych pod uwagę przy wyznaczaniu ścieżki</param>
+            <param name="maxIndexes">Maksymalne indeksy pól branych pod uwagę przy wyznaczaniu ścieżki</param>
+            <returns>Lista dostępnych sąsiadów</returns>
+        </member>
+        <member name="M:HexGameBoard.HexHelper.HasValidIndex(UnityEngine.Vector2Int,UnityEngine.Vector2Int,UnityEngine.Vector2Int)">
+            <summary>
+                Określa, czy pole ma dozwolony index
+            </summary>
+            <param name="index">Pozycja pola</param>
+            <param name="minIndexes">Minimalne indeksy pól branych pod uwagę przy wyznaczaniu ścieżki</param>
+            <param name="maxIndexes">Maksymalne indeksy pól branych pod uwagę przy wyznaczaniu ścieżki</param>
+            <returns></returns>
+        </member>
+        <member name="T:HexGameBoard.Nodes.Node">
+            <summary>
+                Węzeł ścieżki dla algorytmu A*.
+                Współpracuje z FastPriorityQueue:
+                https://github.com/BlueRaja/High-Speed-Priority-Queue-for-C-Sharp
+            </summary>
+        </member>
+        <member name="T:HexGameBoard.Nodes.Node.States">
+            <summary>
+                Stany, w których może znajdować się węzeł w trakcie rozpatrywania przez algorytm A*
+            </summary>
+        </member>
+        <member name="F:HexGameBoard.Nodes.Node.States.Unexamined">
+            <summary>Niesprawdzony</summary>
+        </member>
+        <member name="F:HexGameBoard.Nodes.Node.States.InOpenSet">
+            <summary>Na liście otwartej</summary>
+        </member>
+        <member name="F:HexGameBoard.Nodes.Node.States.InClosedSet">
+            <summary>Na liście zamkniętej</summary>
+        </member>
+        <member name="F:HexGameBoard.Nodes.Node.parent">
+            <summary>
+                Poprzednie pole aktualnej ścieżki
+            </summary>
+        </member>
+        <member name="F:HexGameBoard.Nodes.Node.position">
+            <summary>
+                Index pola (pozycja w tablicy)
+            </summary>
+        </member>
+        <member name="F:HexGameBoard.Nodes.Node.neighbors">
+            <summary>
+                Lista indeksów pól na które można przejść
+            </summary>
+        </member>
+        <member name="F:HexGameBoard.Nodes.Node.state">
+            <summary>
+                Aktualny stan, w którym jest węzeł w trakcie rozpatrywania przez algorytm A*
+            </summary>
+        </member>
+        <member name="F:HexGameBoard.Nodes.Node.g">
+            <summary>
+                Odległość od pola startowego
+            </summary>
+        </member>
+        <member name="F:HexGameBoard.Nodes.Node.h">
+            <summary>
+                Szacowana odległość do celu
+            </summary>
+        </member>
+        <member name="P:HexGameBoard.Nodes.Node.F">
+            <summary>
+                Szacowana długość ścieżki
+            </summary>
+        </member>
+        <member name="M:HexGameBoard.Nodes.Node.#ctor(UnityEngine.Vector2Int)">
+            <summary>
+                Inicjalizuje nową instację węzła
+            </summary>
+            <param name="position">Index pola (pozycja w tablicy)</param>
+        </member>
+        <member name="M:HexGameBoard.Nodes.Node.#ctor(System.Int32,System.Int32)">
+            <summary>
+                Inicjalizuje nową instację węzła
+            </summary>
+            <param name="x">Index X pola (pozycja w tablicy)</param>
+            <param name="y">Index Y pola (pozycja w tablicy)</param>
+        </member>
+        <member name="T:HexGameBoard.PathFindableField">
+            <summary>
+                Pola używane w HexHelper.FindPath(PathFindableField[][], ...) muszą dziedziczyć po tej klasie
+            </summary>
+        </member>
+        <member name="F:HexGameBoard.PathFindableField.position">
+            <summary>
+                Pozycja pola (indeks w tablicy)
+            </summary>
+        </member>
+        <member name="F:HexGameBoard.PathFindableField.isAvailable">
+            <summary>
+                Określa, czy pole jest dostępne (czy można przez niego prowadzić ścieżkę).
+            </summary>
+        </member>
+        <member name="M:HexGameBoard.PathFindableField.#ctor(UnityEngine.Vector2Int,System.Boolean)">
+            <summary>
+                Inicjalizuje nową instację
+            </summary>
+            <param name="position">Pozycja pola (indeks w tablicy)</param>
+            <param name="isAvailable">Określa, czy pole jest dostępne (czy można przez niego prowadzić ścieżkę).</param>
+        </member>
+        <member name="M:HexGameBoard.PathFindableField.#ctor(System.Int32,System.Int32,System.Boolean)">
+            <summary>
+                Inicjalizuje nową instację
+            </summary>
+            <param name="positionX">Pozycja pola X (indeks w tablicy)</param>
+            <param name="positionY">Pozycja pola Y (indeks w tablicy)</param>
+            <param name="isAvailable">Określa, czy pole jest dostępne (czy można przez niego prowadzić ścieżkę).</param>
+        </member>
+        <member name="T:HexGameBoard.PathFinder">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:HexGameBoard.PathFinder.SizeX">
+            <summary>
+                Rozmiar Y tablicy przechowującej szablon planszy
+            </summary>
+        </member>
+        <member name="P:HexGameBoard.PathFinder.SizeY">
+            <summary>
+                Rozmiar Y tablicy przechowującej szablon planszy
+            </summary>
+        </member>
+        <member name="M:HexGameBoard.PathFinder.#ctor(HexGameBoard.PathFindableField[][])">
+            <summary>
+                Inicjalizuje nową instancję podanym szablonem planszy
+            </summary>
+            <param name="fieldsTemplate">Szablon planszy</param>
+        </member>
+        <member name="M:HexGameBoard.PathFinder.Initialize(HexGameBoard.PathFindableField[][])">
+            <summary>
+                Inicjalizuje planszę polami
+            </summary>
+            <param name="fieldsTemplate">Szablon planszy</param>
+        </member>
+        <member name="M:HexGameBoard.PathFinder.Find(UnityEngine.Vector2Int,UnityEngine.Vector2Int)">
+            <summary>
+                Wyszukuje najkrótszą ścieżkę pomiędzy dwoma polami.  
+                Implementacja algorytmu A*.
+            </summary>
+            <param name="start">Pole startowe</param>
+            <param name="destination">Pole końcowe</param>
+            <seealso cref="T:HexGameBoard.PathFindableField"/>
+            <returns>Najkrótsza ścieżka (stos)</returns>
+        </member>
+        <member name="M:HexGameBoard.PathFinder.Find(UnityEngine.Vector2Int,UnityEngine.Vector2Int,System.Collections.Generic.IEnumerable{UnityEngine.Vector2Int})">
+            <summary>
+                Wyszukuje najkrótszą ścieżkę pomiędzy dwoma polami.  
+                Implementacja algorytmu A*.
+            </summary>
+            <param name="start">Pole startowe</param>
+            <param name="destination">Pole końcowe</param>
+            <param name="temporaryObstacles">Pozycje tymczasowych przeszkód (niepodanych przy inicjalizacji)</param>
+            <seealso cref="T:HexGameBoard.PathFindableField"/>
+            <returns>Najkrótsza ścieżka (stos)</returns>
+        </member>
+        <member name="M:HexGameBoard.PathFinder.SetField(UnityEngine.Vector2Int,System.Boolean)">
+            <summary>
+                Ustawia pole i aktualizuje relacje z sąsiednimi polami
+            </summary>
+            <param name="position">Pozycja pola (indeks w tablicy)</param>
+            <param name="isAvailable"></param>
+        </member>
+        <member name="M:HexGameBoard.PathFinder.SetField(System.Int32,System.Int32,System.Boolean)">
+            <summary>
+                Aktywuje/dezaktywuje podane pole i aktualizuje relacje z jego sąsiednimi polami
+            </summary>
+            <param name="x">Pozycja X pola (indeks w tablicy)</param>
+            <param name="y">Pozycja Y pola (indeks w tablicy)</param>
+            <param name="isAvailable">Określa, czy pole ma zostać aktywowane (true) czy dezaktywowane</param>
+        </member>
+        <member name="M:HexGameBoard.PathFinder.SetFields(System.Collections.Generic.IEnumerable{UnityEngine.Vector2Int},System.Boolean)">
+            <summary>
+                Aktywuje/dezaktywuje wszystkie pola z dostarczonej kolekcji i aktualizuje relacje z ich sąsiednimi polami
+            </summary>
+            <param name="positions">Pozycje pól (indeksy tablicy) do ustawienia</param>
+            <param name="isAvailable">Określa, czy pole ma zostać aktywowane (true) czy dezaktywowane</param>
+        </member>
+    </members>
+</doc>
