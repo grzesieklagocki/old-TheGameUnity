@@ -27,7 +27,7 @@ public class GameBoardController : NetworkBehaviour
     void Start()
     {
         //Debug.Log("kąt " + Mathf.Atan(1) * Mathf.Rad2Deg);
-        mainCamera = GameObject.Find("Main Camera").transform.GetComponent<Camera>();
+        mainCamera = Camera.main;
 
         Initialize(31, 31);
         var a = FieldsInRange(new Vector2Int(10, 10), 10);
